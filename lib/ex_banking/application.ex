@@ -7,7 +7,13 @@ defmodule ExBanking.Application do
 
   @impl true
   def start(_type, _args) do
-    children = []
+    children = [
+      # Start User Registry
+      {Registry, keys: :unique, name: ExBanking.UserRegistry},
+
+      # Start User Supervisor
+      {DynamicSupervisor, strategy: :one_for_one, name: ExBanking.Users.Supervisor}
+    ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

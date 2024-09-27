@@ -43,7 +43,7 @@ defmodule ExBankingWeb.Telemetry do
       summary("phoenix.socket_connected.duration",
         unit: {:native, :millisecond}
       ),
-      summary("phoenix.channel_joined.duration",
+      summary("phoenix.channel_join.duration",
         unit: {:native, :millisecond}
       ),
       summary("phoenix.channel_handled_in.duration",
