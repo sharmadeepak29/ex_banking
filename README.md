@@ -1,5 +1,5 @@
 # ExBanking
-Simple banking application using Elixir/OTP with the features of creating users, deposits, withdrawals, get balances and send money.
+Banking application using Elixir/OTP with the features of creating users, deposits, withdrawals, get balances and send money.
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ To run the application locally, follow these steps:
    elixir 1.16.0-otp-26
    erlang 26.2.1
    ```
-* Elixir and Erlang versions are already added to `.tool-versions`.
+* Elixir and Erlang versions are already added to `.tool-versions` and can be installed using asdf.
 
 ### 2. Clone the Repository:
    ```bash
