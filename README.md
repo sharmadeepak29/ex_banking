@@ -20,7 +20,7 @@ To run the application locally, follow these steps:
 ### 3. Setup
 To start your server:
 -  Run `mix deps.get` to install and setup dependencies
--  Start inside IEx with `iex -S mix phx.server`.
+-  Start inside IEx with `iex -S mix`.
 
 
 ## API Reference
