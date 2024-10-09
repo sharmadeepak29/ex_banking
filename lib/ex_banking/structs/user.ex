@@ -27,4 +27,7 @@ defmodule ExBanking.Structs.User do
       {:error, _reason} -> {:error, :wrong_arguments}
     end
   end
+
+  def validate(from_user, from_user), do: {:error, :wrong_arguments}
+  def validate(_from_user, _to_user), do: :ok
 end

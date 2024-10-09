@@ -7,11 +7,13 @@ defmodule ExBanking.AccountManager do
   alias ExBanking.Users.Server, as: UserServer
   alias ExBanking.Users.Supervisor, as: UserSupervisor
 
-  @spec create(username :: User.name()) :: :ok
+  @spec create(username :: User.name()) :: :ok | {:error, :user_already_exists}
   def create(username) do
     if lookup(username) == [] do
-      {:ok, _child} = UserSupervisor.start_child(user: username)
-      :ok
+      case UserSupervisor.start_child(user: username) do
+        {:ok, _child} -> :ok
+        {:error, :already_started} -> {:error, :user_already_exists}
+      end
     else
       {:error, :user_already_exists}
     end

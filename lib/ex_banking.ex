@@ -144,7 +144,8 @@ defmodule ExBanking do
              from_user_balance: Account.balance(),
              to_user_balance: Account.balance()
   def send(from_user, to_user, amount, currency) do
-    with :ok <- Validation.validate_user(from_user),
+    with :ok <- Validation.validate_same_user(from_user, to_user),
+         :ok <- Validation.validate_user(from_user),
          :ok <- Validation.validate_user(to_user),
          :ok <-
            Validation.validate_account(currency, amount),

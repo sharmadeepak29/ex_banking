@@ -240,6 +240,14 @@ defmodule ExBanking.ExBankingTest do
                ExBanking.send(from_user, to_user, _amount = 100, currency)
     end
 
+    test "returns error when user sends money to himself", %{
+      from_user: from_user,
+      ccy: currency
+    } do
+      assert {:error, :wrong_arguments} ==
+               ExBanking.send(from_user, from_user, _amount = 100, currency)
+    end
+
     test "with valid params send money from user_a to user_b and vice-versa", %{
       from_user: user_a,
       to_user: user_b,
